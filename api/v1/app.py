@@ -8,10 +8,13 @@ app = Flask(__name__)
 
 app.register_blueprint(app_views)
 
-"""@app.teardown_appcontext
-def tear_down():
+@app.teardown_appcontext
+def tear_down(self):
+    """
     method to handle @app.teardown_appcontext
-    storage.close()"""
+
+    """
+    storage.close()
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, threaded=True)
