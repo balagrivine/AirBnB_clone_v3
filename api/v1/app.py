@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
-from flask import Flask, make_response
+"""app"""
+from flask import Flask, make_response, jsonify
 from models import storage
 from api.v1.views import app_views
+from os import getenv
 
 app = Flask(__name__)
 
@@ -17,12 +19,12 @@ def tear_down(self):
     storage.close()
 
 @app.errorhandler(404)
-def error404():
+def error404(error):
     """Method to handle 404 error"""
     return make_response(jsonify({"error": "Not fount"}), 404)
 
 if __name__ == "__main__":
-    if getent("HBNB_API_HOST") is None:
+    if getenv("HBNB_API_HOST") is None:
         HBNB_API_HOST = '0.0.0.0'
     else:
         HBNB_API_HOST = getenv("HBNB_API_HOST")
