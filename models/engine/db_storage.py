@@ -83,6 +83,19 @@ class DBStorage:
             Retruns:
                 The retrieved object, or None if not done
         """
-        if cls not in classes:
-            return None
+        obj_dict = models.storage.all(cls)
+        for k, v in obj_dict.items():
+            string = cls.__name__ + '.' + id
+            if k == string:
+                return v
 
+    def count(self, cls=None):
+        """
+        counts no of objects of a class
+        Args:
+            cls: class name
+        Returns:
+            number of onjects in a class
+        """
+        obj_dict = models.storage.all(cls)
+        return len(obj_dict)
