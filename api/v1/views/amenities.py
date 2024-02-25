@@ -34,12 +34,12 @@ def del_amenity(amenity_id):
 
     amenity_obj.remove(amenity_obj[0])
     for obj in all_amenities:
-        if amenity.id == amenity_id:
+        if obj.id == amenity_id:
             storage.delete(obj)
             storage.save()
     return jsonify({}), 200
 
-@app_views.route('/amenity/', methods=['POST'])
+@app_views.route('/amenities/', methods=['POST'])
 def create_amenity():
     """Creates  astate"""
     if not request.get_json():
@@ -52,7 +52,7 @@ def create_amenity():
     new_amenity = Amenity(name=request.json['name'])
     storage.new(new_amenity)
     storage.save()
-    amenities.append(new_amenities.to_dict())
+    amenities.append(new_amenity.to_dict())
     return jsonify(amenities[0]), 201
 
 @app_views.route('/amenities/<amenity_id>/', methods=['PUT'])
