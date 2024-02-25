@@ -8,7 +8,7 @@ from models.amenity import Amenity
 from api.v1.views import app_views
 
 @app_views.route('/amenities/', methods=['GET'])
-def all_amenities():
+def list_amenities():
     """Retureves the list of all states objects"""
     all_amenities = [obj.to_dict() for obj in storage.all("Amenity").values()]
     return jsonify(all_amenities)
