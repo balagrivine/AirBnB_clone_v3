@@ -7,6 +7,7 @@ from flask import jsonify, abort, request
 from models.user import User
 from api.v1.views import app_views
 
+@app_views.route('/users', methods=['GET'])
 @app_views.route('/users/', methods=['GET'])
 def all_users():
     """Retureves the list of all states objects"""
