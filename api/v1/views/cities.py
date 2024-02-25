@@ -12,6 +12,7 @@ from models.city import City
 from models.state import State
 
 @app_views.route('/states/<state_id>/cities', methods=['GET'])
+@app_views.route('/states/<state_id>/cities/', methods=['GET'])
 def list_cities(state_id):
     """Retrieves the list of all City objects of a state"""
 
@@ -56,6 +57,7 @@ def del_city(city_id):
     return jsonify({}), 200
 
 @app_views.route('/states/<state_id>/cities', methods=['POST'])
+@app_views.route('/states/<state_id>/cities/', methods=['POST'])
 def create_city(state_id):
     """Creates a city object"""
     if not request.get_json():
