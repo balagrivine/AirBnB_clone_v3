@@ -26,7 +26,7 @@ def list_cities(state_id):
                     if state_id == obj.state_id]
     return jsonify(list_cities)
 
-@app_views.route('/cities/<city_id>', methods=['GET'])
+@app_views.route('/cities/<city_id>/', methods=['GET'])
 def get_cities(city_id):
     """Retrieves a city object"""
     all_cities = storage.all("City").values()
@@ -38,7 +38,7 @@ def get_cities(city_id):
 
     return jsonify(city_obj[0])
 
-@app_views.route('/cities/<city_id>', methods=['DELETE'])
+@app_views.route('/cities/<city_id>/', methods=['DELETE'])
 def del_city(city_id):
     """Deletes  a city object"""
     all_cities = storage.all("City").values()
