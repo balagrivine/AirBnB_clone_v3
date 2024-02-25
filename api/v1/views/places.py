@@ -79,6 +79,13 @@ def create_place(city_id):
     new_place = Place(name=request.json['name'],
                         user_id = request.json['user_id'], city_id=city_id)
 
+    all_users = storage.all("User").values()
+    user_obj = [obj.to_dict() for obj in all_users
+                if obj.id == new_place.user_id]
+
+    if user_obj == []:
+        abort(404)
+
     storage.new(new_place)
     storage.save()
 
