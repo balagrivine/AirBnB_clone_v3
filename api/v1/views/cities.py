@@ -26,7 +26,8 @@ def list_cities(state_id):
                     if state_id == obj.state_id]
     return jsonify(list_cities)
 
-@app_views.route('/cities/<city_id>', strict_slashes=False, methods=['GET'])
+@app_views.route('/cities/<city_id>', methods=['GET'])
+@app_views.route('/cities/<city_id/>', methods=['GET'])
 def get_cities(city_id):
     """Retrieves a city object"""
     all_cities = storage.all("City").values()
