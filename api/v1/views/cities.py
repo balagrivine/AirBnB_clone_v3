@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """
 create a new view for City objects that handles all default RESTFul API actions:
 """
