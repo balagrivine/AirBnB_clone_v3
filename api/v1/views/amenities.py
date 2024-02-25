@@ -56,7 +56,7 @@ def create_amenity():
     return jsonify(amenities[0]), 201
 
 @app_views.route('/amenities/<amenity_id>', methods=['PUT'])
-def update_amenities(state_id):
+def update_amenities(amenity_id):
     """Updates a state object"""
     all_amenities = storage.all("Amenity").values()
     amenity_obj = [obj.to_dict() for obj in all_amenities if obj.id == amenity_id]
