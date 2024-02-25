@@ -66,10 +66,17 @@ def update_users(user_id):
     all_users = storage.all("State").values()
     user_obj = [obj.to_dict() for obj in all_users if obj.id == user_id]
     if user_obj == []:
-        abort(400)
+        abort(404)
     if not request.get_json():
         abort(400, 'Not a JSON')
-    user_obj[0]['name'] = request.json['name']
+    try:
+        user_obj[0]['first_name'] = request.json['first_name']
+    except:
+        pass
+    try:
+        user_obj[0]['last_name'] = request.json['last_name']
+    except:
+        pass
     for obj in all_users:
         if obj.id == user_id:
             try:
