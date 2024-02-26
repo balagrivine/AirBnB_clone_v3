@@ -80,7 +80,7 @@ def update_users(user_id):
     for obj in all_users:
         if obj.id == user_id:
             try:
-                if request.jsonn['first_name'] is not None:
+                if request.json['first_name'] is not None:
                     obj.first_name = request.json['first_name']
             except:
                 pass
