@@ -91,6 +91,16 @@ def update_users(user_id):
                     obj.last_name = request.json['last_name']
             except:
                 pass
+            try:
+                if request.json['email'] is not None:
+                    obj.email = request.json['email']
+            except:
+                pass
+            try:
+                if request.json['password'] is  not None:
+                    obj.password = request.json['password']
+            except:
+                pass
     storage.save()
     return jsonify(user_obj[0]), 200
 
