@@ -65,7 +65,7 @@ def create_user():
 @app_views.route('/users/<user_id>', methods=['PUT'])
 def update_users(user_id):
     """Updates a state object"""
-    all_users = storage.all("State").values()
+    all_users = storage.all("User").values()
     user_obj = [obj.to_dict() for obj in all_users if obj.id == user_id]
     if user_obj == []:
         abort(404)
