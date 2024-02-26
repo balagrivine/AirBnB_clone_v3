@@ -54,7 +54,9 @@ def create_user():
 
     users = []
     new_user = User(email=request.json['email'],
-                    password=request.json['password'])
+                    password=request.json['password'],
+                    first_name=request.json['first_name'],
+                    last_name=request.json['last_name'])
     storage.new(new_user)
     storage.save()
     users.append(new_user.to_dict())
