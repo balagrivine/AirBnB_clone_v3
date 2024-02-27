@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """A module for app.py file """
-import os import getenv
+import os
 from models import storage
 from flask import Flask, jsonify
 from api.v1.views import app_views
