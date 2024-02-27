@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""The app.py file """
+"""A module for app.py file """
 import os
 from models import storage
 from flask import Flask, jsonify
@@ -18,7 +18,7 @@ CORS(app, resources={r"/api/v1/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def close(cls):
-    """the close"""
+    """the close function"""
     storage.close()
 
 
@@ -29,5 +29,5 @@ def not_found(e):
 
 
 if __name__ == '__main__':
-    """Initializes api"""
+    """This Initialize api"""
     app.run(host=host, port=int(port), threaded=True)
